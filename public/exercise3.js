@@ -29,8 +29,15 @@ let checkboxLabelHTML = document.getElementById('checkbox-label');
 // use the current state to decide whether checkboxLabelHTML needs to be 'checked' or 'unchecked'
 // use checkboxLabelHTML.innerHTML == ...   to update the label with the correct word
 
+store3.subscribe(() => {
+	if (store3.getState().isChecked) {
+		checkboxLabelHTML.innerHTML = "checked!";
+	} else {
+		checkboxLabelHTML.innerHTML = "unchecked!";
+	}
+})
 
-checkboxHTML.addEventListener('change', (e)=>{
+checkboxHTML.addEventListener('change', (e) => {
 	store3.dispatch({
 		type: "CLICK_CHECKBOX"
 	})
